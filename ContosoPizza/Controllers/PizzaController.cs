@@ -37,7 +37,7 @@ public class PizzaController : ControllerBase
     public IActionResult Create(Pizza pizza) {
         PizzaService.Add(pizza);
         // uses the action name to generate a location HTTP response header with a URL to the newly created pizza
-        return CreatedAtAction(nameof(Get), new {id = pizza.Id, Name = pizza.Name});
+        return CreatedAtAction(nameof(Get), new {id = pizza.Id}, pizza);
     }
 
     // PUT action: modify ot update a pizza in the inventory
@@ -66,3 +66,7 @@ public class PizzaController : ControllerBase
         return NoContent();
     }
 }
+
+
+
+// Post request 
